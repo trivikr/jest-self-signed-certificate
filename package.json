@@ -1,7 +1,7 @@
 {
-  "name": "jest-basic-test",
+  "name": "jest-self-signed-certificate",
   "version": "1.0.0",
-  "description": "Repo for basic testing Jest",
+  "description": "Testing self signed certificate error with jest",
   "main": "sum.js",
   "scripts": {
     "test": "jest"
@@ -9,8 +9,8 @@
   "keywords": [
     "Jest",
     "Test",
-    "Configuration",
-    "JSON"
+    "Node",
+    "Self signed certificate"
   ],
   "author": "Trivikram Kamat",
   "license": "ISC",
