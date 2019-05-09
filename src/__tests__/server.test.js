@@ -4,16 +4,22 @@
 const server = require("../server");
 const axios = require("axios");
 
-test("server runs at provided port", async () => {
-  const port = 2397;
+describe("server", () => {
+  let httpsServer;
+  const PORT = 2397;
 
-  // create server on port
-  const httpServer = server(port);
+  beforeEach(() => {
+    // create server on port
+    httpsServer = server(PORT);
+  });
 
-  // Get response from port and verify
-  const response = await axios.get(`http://localhost:${port}`);
-  expect(response.data).toBe("HELLO WORLD!");
+  afterEach(() => {
+    httpsServer.close();
+  });
 
-  // Close the server
-  httpServer.close();
+  it("server sends response", async () => {
+    // Get response from port and verify
+    const response = await axios.get(`https://localhost:${PORT}`);
+    expect(response.data).toBe("HELLO WORLD!");
+  });
 });

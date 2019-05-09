@@ -1,7 +1,15 @@
-const http = require("http");
+const https = require("https");
+const fs = require("fs");
+const path = require("path");
+
+const options = {
+  key: fs.readFileSync(path.join(__dirname, "keys/key.pem")),
+  cert: fs.readFileSync(path.join(__dirname, "keys/cert.pem"))
+};
+
 module.exports = port =>
-  http
-    .createServer((req, res) => {
+  https
+    .createServer(options, (req, res) => {
       res.end("HELLO WORLD!");
     })
     .listen(port);
